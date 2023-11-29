@@ -1,10 +1,20 @@
-﻿
+﻿@model Meeting_Management.Models.Meeting_Minutes_Master_Tbl
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+<style>
+    span {
+        color:red;
+        font-weight:bold;
+    }
+</style>
+
 <div class="container-fluid">
-    <form>
+
+    @using (Html.BeginForm("Index", "Task", FormMethod.Post))
+    {
+        @Html.AntiForgeryToken();
         <div class="card mt-4">
             <div class="card-header">
                 <div class="row">
@@ -13,90 +23,87 @@
                 </div>
             </div>
             <div class="card-body">
-                <div class="row">
+                <div class="row" id="customerType">
                     <div class="col-md-3">
                         <input class="form-check-input" type="radio" name="PersonType" id="Corporate" value="Corporate" checked>
                         <label class="form-check-label" for="Corporate">
                             Corporate
                         </label>
                     </div>
+
                     <div class="col-md-3">
                         <input class="form-check-input" type="radio" name="PersonType" id="Individual" value="Individual">
                         <label class="form-check-label" for="Individual">
                             Individual
                         </label>
                     </div>
-
                 </div>
-                <hr />
-                <div class="row">
-                    <div class="col-md-6">
-                        <div class="mb-3 row">
-                            <label for="exampleFormControlInput1" class="col-form-label col-sm-4">Customer Name</label>
-                            <div class="col-sm-8">
-                                <select class="form-select form-select-sm">
-                                    <option selected>Select customer name</option>
-                                    @foreach (var n in ViewBag.Names)
-                                    {
-                                        <option value="@n">@n</option>
-
-                                    }
-                                </select>
-                            </div>
-                        </div>
-                        <div class="mb-3 row">
-                            <label for="exampleFormControlTextarea1" class="col-form-label col-sm-4">Date</label>
-                            <div class="col-sm-3">
-                                <input type="date" class="form-control" id="exampleFormControlTextarea1" rows="3"/>
-                            </div>
-                            <label for="exampleFormControlTextarea1" class="col-form-label col-sm-2">Time</label>
-                            <div class="col-sm-3">
-                                <input type="time" class="form-control" id="exampleFormControlTextarea1" rows="3"/>
-                            </div>
-                        </div>
-                        <div class="mb-3 row">
-                            <label for="exampleFormControlTextarea1" class="col-form-label col-sm-4">Meating Place</label>
-                            <div class="col-sm-8">
-                                <input type="text" class="form-control" id="exampleFormControlTextarea1" rows="3"/>
-                            </div>
-                        </div>
-                        <div class="mb-3 row">
-                            <label for="exampleFormControlTextarea1" class="col-form-label col-sm-4">Attends From Client Side</label>
-                            <div class="col-sm-8">
-                                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-                            </div>
-                        </div>
-                        <div class="mb-3 row">
-                            <label for="exampleFormControlTextarea1" class="col-form-label col-sm-4">Attends From Host Side</label>
-                            <div class="col-sm-8">
-                                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-                            </div>
+            </div>
+            <hr />
+            @*First Part*@
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="mb-3 row">
+                        <label for="exampleFormControlInput1" class="col-form-label col-sm-4">Customer Name<span>*</span></label>
+                        <div class="col-sm-8">
+                            @Html.DropDownListFor(x => x.CustomerName, new SelectList(ViewBag.CustomerNames), "Select customer name", new { @class = "form-control" })
                         </div>
                     </div>
-                    <div class="col-6">
-                        <div class="mb-3 row">
-                            <label for="exampleFormControlTextarea1" class="col-form-label col-sm-4">Meeting Agenda</label>
-                            <div class="col-sm-8">
-                                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-                            </div>
+                    <div class="mb-3 row">
+                        <label for="exampleFormControlTextarea1" class="col-form-label col-sm-4">Date</label>
+                        <div class="col-sm-3">
+                            @Html.TextBoxFor(x => x.Date, new { @class = "form-control", type = "date" })
                         </div>
-                        <div class="mb-3 row">
-                            <label for="exampleFormControlTextarea1" class="col-form-label col-sm-4">Meeting Discussion*</label>
-                            <div class="col-sm-8">
-                                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-                            </div>
+                        <label for="exampleFormControlTextarea1" class="col-form-label col-sm-2">Time</label>
+                        <div class="col-sm-3">
+                            @Html.TextBoxFor(x => x.Time, new { @class = "form-control", type = "time" })
                         </div>
-                        <div class="mb-3 row">
-                            <label for="exampleFormControlTextarea1" class="col-form-label col-sm-4">Meeting Decision*</label>
-                            <div class="col-sm-8">
-                                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-                            </div>
-                        </div>
-
                     </div>
+                    <div class="mb-3 row">
+                        <label for="exampleFormControlTextarea1" class="col-form-label col-sm-4">Meating Place<span>*</span></label>
+                        <div class="col-sm-8">
+                            @Html.TextBoxFor(x => x.MeetingPlace, new { @class = "form-control", type = "text" })
+                        </div>
+                    </div>
+                    <div class="mb-3 row">
+                        <label for="exampleFormControlTextarea1" class="col-form-label col-sm-4">Attends From Client Side<span>*</span></label>
+                        <div class="col-sm-8">
+                            @Html.TextAreaFor(x => x.AttendsFromClientSide, new { @class = "form-control", type = "text" })
+                        </div>
+                    </div>
+                    <div class="mb-3 row">
+                        <label for="exampleFormControlTextarea1" class="col-form-label col-sm-4">Attends From Host Side<span>*</span></label>
+                        <div class="col-sm-8">
+                            @Html.TextAreaFor(x => x.AttendsFromHostSide, new { @class = "form-control", type = "textarea" })
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div class="mb-3 row">
+                        <label for="exampleFormControlTextarea1" class="col-form-label col-sm-4">Meeting Agenda<span>*</span></label>
+                        <div class="col-sm-8">
+                            @Html.TextAreaFor(x => x.MeetingAgenda, new { @class = "form-control", type = "textarea" })
+                        </div>
+                    </div>
+                    <div class="mb-3 row">
+                        <label for="exampleFormControlTextarea1" class="col-form-label col-sm-4">Meeting Discussion<span>*</span></label>
+                        <div class="col-sm-8">
+                            @Html.TextAreaFor(x => x.MeetingDiscussion, new { @class = "form-control", type = "textarea" })
+                        </div>
+                    </div>
+                    <div class="mb-3 row">
+                        <label for="exampleFormControlTextarea1" class="col-form-label col-sm-4">Meeting Decision<span>*</span></label>
+                        <div class="col-sm-8">
+                            @Html.TextAreaFor(x => x.MeetingDecision, new { @class = "form-control", type = "textarea" })
+                        </div>
+                    </div>
+
                 </div>
             </div>
         </div>
+
+        @*Second Part*@
+
         <div class="card mt-3">
             <div class="card-body">
                 <div class="row">
@@ -106,9 +113,11 @@
                             <div class="col-sm-8">
                                 <select class="form-select form-select-sm">
                                     <option selected>Select product/service interested</option>
-                                    <option value="1">One</option>
-                                    <option value="2">Two</option>
-                                    <option value="3">Three</option>
+                                    @foreach (var Pname in ViewBag.ProductNames)
+                                    {
+                                        <option value="@Pname">@Pname</option>
+
+                                    }
                                 </select>
                             </div>
                         </div>
@@ -154,8 +163,7 @@
             </div>
         </div>
         <div class="row">
-            <button type="submit" class="btn btn-sm col-1"><i class="fa fa-save"></i> Save</button>
+            <button type="submit" value="Save Data" class="btn btn-sm col-1"><i class="fa fa-save"></i> Save</button>
             <button type="reset" class="btn btn-sm col-1"><i class="fa fa-refresh"></i> Refresh</button>
         </div>
-    </form>
-</div>
+}
