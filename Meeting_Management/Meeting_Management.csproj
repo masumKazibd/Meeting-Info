@@ -134,31 +134,34 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\Corporate_Custoer_Tbl.cs">
-      <DependentUpon>DataModels.tt</DependentUpon>
+      <DependentUpon>DbModels.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\DataModels.Context.cs">
+    <Compile Include="Models\DbModels.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>DataModels.Context.tt</DependentUpon>
+      <DependentUpon>DbModels.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\DataModels.cs">
+    <Compile Include="Models\DbModels.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>DataModels.tt</DependentUpon>
+      <DependentUpon>DbModels.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\DataModels.Designer.cs">
+    <Compile Include="Models\DbModels.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>DataModels.edmx</DependentUpon>
+      <DependentUpon>DbModels.edmx</DependentUpon>
     </Compile>
     <Compile Include="Models\Individual_Customer_Tbl.cs">
-      <DependentUpon>DataModels.tt</DependentUpon>
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Meeting_Minutes_Details_Tbl.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Meeting_Minutes_Master_Tbl.cs">
-      <DependentUpon>DataModels.tt</DependentUpon>
+      <DependentUpon>DbModels.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Products_Service_Tbl.cs">
-      <DependentUpon>DataModels.tt</DependentUpon>
+      <DependentUpon>DbModels.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -185,15 +188,15 @@
     <Content Include="fonts\fontawesome-webfont.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
-    <Content Include="Models\DataModels.Context.tt">
+    <Content Include="Models\DbModels.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>DataModels.Context.cs</LastGenOutput>
-      <DependentUpon>DataModels.edmx</DependentUpon>
+      <DependentUpon>DbModels.edmx</DependentUpon>
+      <LastGenOutput>DbModels.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="Models\DataModels.tt">
+    <Content Include="Models\DbModels.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>DataModels.edmx</DependentUpon>
-      <LastGenOutput>DataModels.cs</LastGenOutput>
+      <DependentUpon>DbModels.edmx</DependentUpon>
+      <LastGenOutput>DbModels.cs</LastGenOutput>
     </Content>
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
@@ -206,12 +209,12 @@
     <Content Include="fonts\fontawesome-webfont.woff" />
     <Content Include="fonts\fontawesome-webfont.ttf" />
     <Content Include="fonts\fontawesome-webfont.eot" />
-    <EntityDeploy Include="Models\DataModels.edmx">
+    <EntityDeploy Include="Models\DbModels.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>DataModels.Designer.cs</LastGenOutput>
+      <LastGenOutput>DbModels.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <Content Include="Models\DataModels.edmx.diagram">
-      <DependentUpon>DataModels.edmx</DependentUpon>
+    <Content Include="Models\DbModels.edmx.diagram">
+      <DependentUpon>DbModels.edmx</DependentUpon>
     </Content>
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
@@ -240,6 +243,9 @@
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Task\Index.cshtml" />
+    <Content Include="Views\Shared\_success.cshtml" />
+    <Content Include="Views\Shared\_error.cshtml" />
+    <Content Include="Views\Task\_Details.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

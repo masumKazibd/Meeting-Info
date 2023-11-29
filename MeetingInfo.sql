@@ -75,7 +75,7 @@ GO
 --------Meeting_Minutes_Master_Tbl
 CREATE TABLE Meeting_Minutes_Master_Tbl
 (
-	Meeting_Minutes_Master_Tbl_ID INT PRIMARY KEY IDENTITY,
+	Meeting_Minutes_Master_ID INT PRIMARY KEY IDENTITY,
 	CustomerName NVARCHAR(50) NOT NULL,
 	[Date] DATE,
 	[Time] TIME,
@@ -135,4 +135,29 @@ GO
 SELECT * FROM Meeting_Minutes_Master_Tbl
 GO
 
------Meeting_Minutes_Details_Tbl’ using stored procedure ‘Meeting_Minutes _Details_Save_SP’. --CREATE TABLE Meeting_Minutes_Details_Tbl--(--)
+-----Meeting_Minutes_Details_Tbl’ using stored procedure ‘Meeting_Minutes _Details_Save_SP’. 
+CREATE TABLE Meeting_Minutes_Details_Tbl
+(
+Meeting_Minutes_Details_Id INT PRIMARY KEY IDENTITY,
+Products_Service_Name NVARCHAR(50),
+Unit NVARCHAR(25),
+Quantity FLOAT
+)
+GO
+----Meeting_Minutes _Details_Save_SP
+CREATE  PROC Meeting_Minutes_Details_Save_SP  @Products_Service_Name NVARCHAR(50),
+											@Unit NVARCHAR(25),
+											@Quantity FLOAT
+AS
+BEGIN
+	INSERT INTO Meeting_Minutes_Details_Tbl (
+											Products_Service_Name,
+											Unit,
+											Quantity
+											)
+	VALUES (
+			@Products_Service_Name,
+			@Unit,
+			@Quantity
+			)
+END

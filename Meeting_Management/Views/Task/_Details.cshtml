@@ -1,0 +1,57 @@
+﻿@model Meeting_Management.Models.Meeting_Minutes_Details_Tbl
+
+@*Second Part*@
+
+
+<div class="card mt-3">
+    <div class="card-body">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="mb-3 row">
+                    <label for="exampleFormControlInput1" class="col-form-label col-sm-4">Interestd Product/Service</label>
+                    <div class="col-sm-8">
+                        @Html.DropDownListFor(x => x.Products_Service_Name, new SelectList(ViewBag.ProductNames), "Select product/service interested", new { @class = "form-select form-select-sm", @onchange = "onProductChange()" })
+                    </div>
+                </div>
+                <div class="mb-3 row">
+                    <label for="exampleFormControlTextarea1" class="col-form-label col-sm-4">Quantity</label>
+                    <div class="col-sm-3">
+                        @Html.TextBoxFor(x => x.Quantity, new { @class = "form-control", type = "text" })
+                    </div>
+
+                    <label for="exampleFormControlTextarea1" class="col-form-label col-sm-2">Unit</label>
+                    <div class="col-sm-3">
+                        @Html.TextBoxFor(x => x.Unit, new { @class = "form-control", type = "text" })
+                    </div>
+                </div>
+            </div>
+        </div>
+        <button class="btn btn-sm"><i class="fa fa-plus"></i> Add</button>
+    </div>
+</div>
+   
+
+    <div class="card mt-3">
+        <div class="card-body">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th scope="col">SL#</th>
+                        <th scope="col">Interested Product/Service Name</th>
+                        <th scope="col">Quantity</th>
+                        <th scope="col">Unit</th>
+                        <th scope="col">Edit | Delete</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th>1</th>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>

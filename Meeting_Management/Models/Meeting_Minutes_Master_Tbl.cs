@@ -14,7 +14,7 @@ namespace Meeting_Management.Models
     
     public partial class Meeting_Minutes_Master_Tbl
     {
-        public int Meeting_Minutes_Master_Tbl_ID { get; set; }
+        public int Meeting_Minutes_Master_ID { get; set; }
         public string CustomerName { get; set; }
         public Nullable<System.DateTime> Date { get; set; }
         public Nullable<System.TimeSpan> Time { get; set; }

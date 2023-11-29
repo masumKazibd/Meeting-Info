@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="MeetingInfoModelStoreContainer" CdmEntityContainer="MeetingInfoDbContext">
+    <EntitySetMapping Name="Corporate_Custoer_Tbl">
+      <EntityTypeMapping TypeName="MeetingInfoModel.Corporate_Custoer_Tbl">
+        <MappingFragment StoreEntitySet="Corporate_Custoer_Tbl">
+          <ScalarProperty Name="Corporate_Custoer_Id" ColumnName="Corporate_Custoer_Id" />
+          <ScalarProperty Name="Corporate_Custoer_Name" ColumnName="Corporate_Custoer_Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Individual_Customer_Tbl">
+      <EntityTypeMapping TypeName="MeetingInfoModel.Individual_Customer_Tbl">
+        <MappingFragment StoreEntitySet="Individual_Customer_Tbl">
+          <ScalarProperty Name="Individual_Customer_Id" ColumnName="Individual_Customer_Id" />
+          <ScalarProperty Name="Individual_Customer_Name" ColumnName="Individual_Customer_Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Meeting_Minutes_Details_Tbl">
+      <EntityTypeMapping TypeName="MeetingInfoModel.Meeting_Minutes_Details_Tbl">
+        <MappingFragment StoreEntitySet="Meeting_Minutes_Details_Tbl">
+          <ScalarProperty Name="Meeting_Minutes_Details_Id" ColumnName="Meeting_Minutes_Details_Id" />
+          <ScalarProperty Name="Products_Service_Name" ColumnName="Products_Service_Name" />
+          <ScalarProperty Name="Unit" ColumnName="Unit" />
+          <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Meeting_Minutes_Master_Tbl">
+      <EntityTypeMapping TypeName="MeetingInfoModel.Meeting_Minutes_Master_Tbl">
+        <MappingFragment StoreEntitySet="Meeting_Minutes_Master_Tbl">
+          <ScalarProperty Name="Meeting_Minutes_Master_ID" ColumnName="Meeting_Minutes_Master_ID" />
+          <ScalarProperty Name="CustomerName" ColumnName="CustomerName" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="Time" ColumnName="Time" />
+          <ScalarProperty Name="MeetingPlace" ColumnName="MeetingPlace" />
+          <ScalarProperty Name="AttendsFromClientSide" ColumnName="AttendsFromClientSide" />
+          <ScalarProperty Name="AttendsFromHostSide" ColumnName="AttendsFromHostSide" />
+          <ScalarProperty Name="MeetingAgenda" ColumnName="MeetingAgenda" />
+          <ScalarProperty Name="MeetingDiscussion" ColumnName="MeetingDiscussion" />
+          <ScalarProperty Name="MeetingDecision" ColumnName="MeetingDecision" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Products_Service_Tbl">
+      <EntityTypeMapping TypeName="MeetingInfoModel.Products_Service_Tbl">
+        <MappingFragment StoreEntitySet="Products_Service_Tbl">
+          <ScalarProperty Name="Products_Service_Id" ColumnName="Products_Service_Id" />
+          <ScalarProperty Name="Products_Service_Name" ColumnName="Products_Service_Name" />
+          <ScalarProperty Name="Unit" ColumnName="Unit" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="Meeting_Minutes_Details_Save_SP" FunctionName="MeetingInfoModel.Store.Meeting_Minutes_Details_Save_SP" />
+    <FunctionImportMapping FunctionImportName="Meeting_Minutes_Master_Save_SP" FunctionName="MeetingInfoModel.Store.Meeting_Minutes_Master_Save_SP" />
+  </EntityContainerMapping>
+</Mapping>

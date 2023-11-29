@@ -13,12 +13,14 @@ namespace Meeting_Management.Controllers
         MeetingInfoDbContext db = new MeetingInfoDbContext();
         public ActionResult Index()
         {
+            var personType = Request.Form["PersonType"];
+
             //Customer Name
             //if (personType == "Individual")
             //{
             //    ViewBag.CustomerNames = db.Individual_Customer_Tbl.Select(c => c.Individual_Customer_Name).ToList();
             //}
-            //else if(personType == "Corporate")
+            //else if (personType == "Corporate")
             //{
             //    ViewBag.CustomerNames = db.Corporate_Custoer_Tbl.Select(c => c.Corporate_Custoer_Name).ToList();
             //}
@@ -28,9 +30,22 @@ namespace Meeting_Management.Controllers
             //ViewBag.CorporateCustomerNames = db.Corporate_Custoer_Tbl.Select(c=>c.Corporate_Custoer_Name).ToList();
 
             //Service or Product
-            ViewBag.ProductNames = db.Products_Service_Tbl.Select(c=>c.Products_Service_Name).ToList();
 
             return View();
+        } 
+        public ActionResult Details()
+        {
+            ViewBag.ProductNames = db.Products_Service_Tbl.Select(c => c.Products_Service_Name).ToList();
+            return PartialView("_Details");
+        }
+        public ActionResult save()
+        {
+            return (null); 
+        }
+
+        public void onProductChange()
+        {
+            Console.WriteLine("Product Changed");
         }
     }
 }
