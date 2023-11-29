@@ -43,9 +43,13 @@ namespace Meeting_Management.Controllers
             return (null); 
         }
 
-        public void onProductChange()
+        public void onProductChange(string selectedProduct)
         {
-            Console.WriteLine("Product Changed");
+            // Your logic here
+            Console.WriteLine("Product Changed: " + selectedProduct);
+
+            // You might want to return some data to the client
+            //return Json(new { success = true, message = "Product Changed successfully" });
         }
     }
 }

@@ -29,29 +29,48 @@
         <button class="btn btn-sm"><i class="fa fa-plus"></i> Add</button>
     </div>
 </div>
-   
 
-    <div class="card mt-3">
-        <div class="card-body">
-            <table class="table table-striped">
-                <thead>
-                    <tr>
-                        <th scope="col">SL#</th>
-                        <th scope="col">Interested Product/Service Name</th>
-                        <th scope="col">Quantity</th>
-                        <th scope="col">Unit</th>
-                        <th scope="col">Edit | Delete</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <th>1</th>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
+
+<div class="card mt-3">
+    <div class="card-body">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th scope="col">SL#</th>
+                    <th scope="col">Interested Product/Service Name</th>
+                    <th scope="col">Quantity</th>
+                    <th scope="col">Unit</th>
+                    <th scope="col">Edit | Delete</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th>1</th>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </tbody>
+        </table>
     </div>
+</div>
+
+<script>
+    function onProductChange() {
+        console.log("It's work!!");
+        var selectedProduct = $("#Products_Service_Name").val(); // Get the selected value from the dropdown
+        console.log(selectedProduct);
+        $.ajax({
+            type: 'GET',
+            url: '/Controller/OnProductChange', // Replace with your controller and method
+            data: { selectedProduct: selectedProduct },
+            success: function (response) {
+                console.log(response);
+            },
+            error: function (error) {
+                console.error(error);
+            }
+        });
+    }
+</script>
