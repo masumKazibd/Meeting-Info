@@ -77,3 +77,7 @@ G:\Company Task\Meeting_Management\Meeting_Management\obj\Debug\Meeting_Manageme
 G:\Company Task\Meeting_Management\Meeting_Management\obj\Debug\Meeting_Management.csproj.CopyComplete
 G:\Company Task\Meeting_Management\Meeting_Management\obj\Debug\Meeting_Management.dll
 G:\Company Task\Meeting_Management\Meeting_Management\obj\Debug\Meeting_Management.pdb
+G:\Company Task\Meeting_Management\Meeting_Management\bin\EntityFramework.dll
+G:\Company Task\Meeting_Management\Meeting_Management\bin\EntityFramework.SqlServer.dll
+G:\Company Task\Meeting_Management\Meeting_Management\bin\EntityFramework.xml
+G:\Company Task\Meeting_Management\Meeting_Management\bin\EntityFramework.SqlServer.xml

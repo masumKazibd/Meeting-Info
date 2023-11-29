@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="MeetingInfoModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Corporate_Custoer_Tbl">
+    <Key>
+      <PropertyRef Name="Corporate_Custoer_Id" />
+    </Key>
+    <Property Name="Corporate_Custoer_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Corporate_Custoer_Name" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Individual_Customer_Tbl">
+    <Key>
+      <PropertyRef Name="Individual_Customer_Id" />
+    </Key>
+    <Property Name="Individual_Customer_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Individual_Customer_Name" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Meeting_Minutes_Master_Tbl">
+    <Key>
+      <PropertyRef Name="Meeting_Minutes_Master_Tbl_ID" />
+    </Key>
+    <Property Name="Meeting_Minutes_Master_Tbl_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CustomerName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Date" Type="date" />
+    <Property Name="Time" Type="time" Precision="7" />
+    <Property Name="MeetingPlace" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="AttendsFromClientSide" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="AttendsFromHostSide" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="MeetingAgenda" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="MeetingDiscussion" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="MeetingDecision" Type="nvarchar" MaxLength="100" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Products_Service_Tbl">
+    <Key>
+      <PropertyRef Name="Products_Service_Id" />
+    </Key>
+    <Property Name="Products_Service_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Products_Service_Name" Type="nvarchar" MaxLength="50" />
+    <Property Name="Unit" Type="nvarchar" MaxLength="25" />
+  </EntityType>
+  <Function Name="Meeting_Minutes_Master_Save_SP" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="CustomerName" Type="nvarchar" Mode="In" />
+    <Parameter Name="Date" Type="date" Mode="In" />
+    <Parameter Name="Time" Type="time" Mode="In" />
+    <Parameter Name="MeetingPlace" Type="nvarchar" Mode="In" />
+    <Parameter Name="AttendsFromClientSide" Type="nvarchar" Mode="In" />
+    <Parameter Name="AttendsFromHostSide" Type="nvarchar" Mode="In" />
+    <Parameter Name="MeetingAgenda" Type="nvarchar" Mode="In" />
+    <Parameter Name="MeetingDiscussion" Type="nvarchar" Mode="In" />
+    <Parameter Name="MeetingDecision" Type="nvarchar" Mode="In" />
+  </Function>
+  <EntityContainer Name="MeetingInfoModelStoreContainer">
+    <EntitySet Name="Corporate_Custoer_Tbl" EntityType="Self.Corporate_Custoer_Tbl" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Individual_Customer_Tbl" EntityType="Self.Individual_Customer_Tbl" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Meeting_Minutes_Master_Tbl" EntityType="Self.Meeting_Minutes_Master_Tbl" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Products_Service_Tbl" EntityType="Self.Products_Service_Tbl" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>

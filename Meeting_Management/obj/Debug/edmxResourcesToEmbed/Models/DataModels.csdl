@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="MeetingInfoModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Corporate_Custoer_Tbl">
+    <Key>
+      <PropertyRef Name="Corporate_Custoer_Id" />
+    </Key>
+    <Property Name="Corporate_Custoer_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Corporate_Custoer_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Individual_Customer_Tbl">
+    <Key>
+      <PropertyRef Name="Individual_Customer_Id" />
+    </Key>
+    <Property Name="Individual_Customer_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Individual_Customer_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Meeting_Minutes_Master_Tbl">
+    <Key>
+      <PropertyRef Name="Meeting_Minutes_Master_Tbl_ID" />
+    </Key>
+    <Property Name="Meeting_Minutes_Master_Tbl_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CustomerName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Date" Type="DateTime" Precision="0" />
+    <Property Name="Time" Type="Time" Precision="7" />
+    <Property Name="MeetingPlace" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="AttendsFromClientSide" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="AttendsFromHostSide" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="MeetingAgenda" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="MeetingDiscussion" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="MeetingDecision" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Products_Service_Tbl">
+    <Key>
+      <PropertyRef Name="Products_Service_Id" />
+    </Key>
+    <Property Name="Products_Service_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Products_Service_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Unit" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityContainer Name="MeetingInfoDbContext" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Corporate_Custoer_Tbl" EntityType="Self.Corporate_Custoer_Tbl" />
+    <EntitySet Name="Individual_Customer_Tbl" EntityType="Self.Individual_Customer_Tbl" />
+    <EntitySet Name="Meeting_Minutes_Master_Tbl" EntityType="Self.Meeting_Minutes_Master_Tbl" />
+    <EntitySet Name="Products_Service_Tbl" EntityType="Self.Products_Service_Tbl" />
+    <FunctionImport Name="Meeting_Minutes_Master_Save_SP">
+      <Parameter Name="CustomerName" Mode="In" Type="String" />
+      <Parameter Name="Date" Mode="In" Type="DateTime" />
+      <Parameter Name="Time" Mode="In" Type="Time" />
+      <Parameter Name="MeetingPlace" Mode="In" Type="String" />
+      <Parameter Name="AttendsFromClientSide" Mode="In" Type="String" />
+      <Parameter Name="AttendsFromHostSide" Mode="In" Type="String" />
+      <Parameter Name="MeetingAgenda" Mode="In" Type="String" />
+      <Parameter Name="MeetingDiscussion" Mode="In" Type="String" />
+      <Parameter Name="MeetingDecision" Mode="In" Type="String" />
+    </FunctionImport>
+  </EntityContainer>
+</Schema>
