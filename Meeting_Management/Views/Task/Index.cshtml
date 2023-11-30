@@ -12,7 +12,7 @@
 
 <div class="container-fluid">
 
-    @using (Html.BeginForm("Index", "Task", FormMethod.Post))
+    @using (Html.BeginForm("save", "Task", FormMethod.Post))
     {
         @Html.AntiForgeryToken();
         <div class="card mt-4">
@@ -45,23 +45,23 @@
                 <div class="row">
                     <div class="col-md-6">
                         <div class="mb-3 row">
-                            <label for="exampleFormControlInput1" class="col-form-label col-sm-4">Customer Name<span>*</span></label>
+                            <label for="CustomerName" class="col-form-label col-sm-4">Customer Name<span>*</span></label>
                             <div class="col-sm-8">
                                 @Html.DropDownListFor(x => x.CustomerName, new SelectList(ViewBag.CustomerNames), "Select customer name", new { @class = "form-select form-control" })
                             </div>
                         </div>
                         <div class="mb-3 row">
-                            <label for="exampleFormControlTextarea1" class="col-form-label col-sm-4">Date</label>
+                            <label for="Date" class="col-form-label col-sm-4">Date</label>
                             <div class="col-sm-3">
                                 @Html.TextBoxFor(x => x.Date, new { @class = "form-control", type = "date" })
                             </div>
-                            <label for="exampleFormControlTextarea1" class="col-form-label col-sm-2">Time</label>
+                            <label for="Time" class="col-form-label col-sm-2">Time</label>
                             <div class="col-sm-3">
                                 @Html.TextBoxFor(x => x.Time, new { @class = "form-control", type = "time" })
                             </div>
                         </div>
                         <div class="mb-3 row">
-                            <label for="exampleFormControlTextarea1" class="col-form-label col-sm-4">Meating Place<span>*</span></label>
+                            <label for="MeetingPlace" class="col-form-label col-sm-4">Meating Place<span>*</span></label>
                             <div class="col-sm-8">
                                 @Html.TextBoxFor(x => x.MeetingPlace, new { @class = "form-control", type = "text" })
                             </div>
@@ -73,7 +73,7 @@
                             </div>
                         </div>
                         <div class="mb-3 row">
-                            <label for="exampleFormControlTextarea1" class="col-form-label col-sm-4">Attends From Host Side<span>*</span></label>
+                            <label for="AttendsFromHostSide" class="col-form-label col-sm-4">Attends From Host Side<span>*</span></label>
                             <div class="col-sm-8">
                                 @Html.TextAreaFor(x => x.AttendsFromHostSide, new { @class = "form-control", type = "textarea" })
                             </div>
@@ -81,19 +81,19 @@
                     </div>
                     <div class="col-6">
                         <div class="mb-3 row">
-                            <label for="exampleFormControlTextarea1" class="col-form-label col-sm-4">Meeting Agenda<span>*</span></label>
+                            <label for="MeetingAgenda" class="col-form-label col-sm-4">Meeting Agenda<span>*</span></label>
                             <div class="col-sm-8">
                                 @Html.TextAreaFor(x => x.MeetingAgenda, new { @class = "form-control", type = "textarea" })
                             </div>
                         </div>
                         <div class="mb-3 row">
-                            <label for="exampleFormControlTextarea1" class="col-form-label col-sm-4">Meeting Discussion<span>*</span></label>
+                            <label for="MeetingDiscussion" class="col-form-label col-sm-4">Meeting Discussion<span>*</span></label>
                             <div class="col-sm-8">
                                 @Html.TextAreaFor(x => x.MeetingDiscussion, new { @class = "form-control", type = "textarea" })
                             </div>
                         </div>
                         <div class="mb-3 row">
-                            <label for="exampleFormControlTextarea1" class="col-form-label col-sm-4">Meeting Decision<span>*</span></label>
+                            <label for="MeetingDecision" class="col-form-label col-sm-4">Meeting Decision<span>*</span></label>
                             <div class="col-sm-8">
                                 @Html.TextAreaFor(x => x.MeetingDecision, new { @class = "form-control", type = "textarea" })
                             </div>

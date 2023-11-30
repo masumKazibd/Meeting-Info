@@ -38,18 +38,27 @@ namespace Meeting_Management.Controllers
             ViewBag.ProductNames = db.Products_Service_Tbl.Select(c => c.Products_Service_Name).ToList();
             return PartialView("_Details");
         }
-        public ActionResult save()
-        {
-            return (null); 
-        }
 
-        public void onProductChange(string selectedProduct)
+        [HttpPost]
+        public ActionResult save(string selectedProduct)
         {
-            // Your logic here
-            Console.WriteLine("Product Changed: " + selectedProduct);
-
-            // You might want to return some data to the client
-            //return Json(new { success = true, message = "Product Changed successfully" });
+            ViewBag.Unit = db.Products_Service_Tbl.Where(x => x.Products_Service_Name == selectedProduct).Select(c => c.Unit).FirstOrDefault();
+            return (ViewBag.Unit); 
         }
+        //[HttpPost]
+        //public void onProductChange(string selectedProduct)
+        //{
+        //    // Your logic here
+        //    Console.WriteLine("Product Changed: " + selectedProduct);
+        //    ViewBag.Unit = db.Products_Service_Tbl.Where(x => x.Products_Service_Name == selectedProduct).Select(c => c.Unit).FirstOrDefault();
+        //    //return (ViewBag.Unit);
+        //}
+        //[HttpPost]
+        //public ActionResult onProductChange(string selectedProduct)
+        //{
+        //    ViewBag.Unit = db.Products_Service_Tbl.Where(x => x.Products_Service_Name == selectedProduct).Select(c => c.Unit).FirstOrDefault();
+        //    return (ViewBag.Unit);
+        //}
+
     }
 }
